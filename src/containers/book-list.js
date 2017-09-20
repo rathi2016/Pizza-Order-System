@@ -5,9 +5,14 @@ import {bindActionCreators } from 'redux';
 
 class BookList extends Component {
   renderList(){
-    return this.props.books.map((books)=> {
+    return this.props.books.map((book)=> {
       return (
-        <li className="list-group-item" >{books.title}</li>
+        <li
+        key={book.title}
+        onClick={()=> this.props.selectBook(book)}
+        className="list-group-item" >
+        {book.title}
+        </li>
       );
     });
   }
@@ -25,6 +30,8 @@ function mapStateToProps(state) {
     books: state.books
   };
 }
+// Anything returned from this function will end up as props
+// on the BookList containers.
 
 function mapDispatchToProps(dispatch) {
   // whenever selectBook is called, the result should be passed
