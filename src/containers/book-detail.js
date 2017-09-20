@@ -10,8 +10,10 @@ import {connect} from 'react-redux';
     }
     return (
        <div>
-        <h3>Details for:</h3>
-          <div>{this.props.book.title}
+        <h3>Details:</h3>
+          <div>
+          <h4>Title: {this.props.book.title}</h4>
+          <h4>Pages: {this.props.book.pages}</h4>
 
           </div>
        </div>
